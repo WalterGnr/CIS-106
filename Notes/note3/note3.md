@@ -1,12 +1,13 @@
+#Notes 3:
 ## Linux terminal
-# two ways to access:
+### two ways to access:
 * terminal emulator
 * linux terminal
   
-### Bash shell is the most common shell used.
+#### Bash shell is the most common shell used.
 Some commands: date (shows date) - cal (calendar) - clear (clear screen) - uname (system info)
 
-### SUDO - APT - COMMAND:
+#### SUDO - APT - COMMAND:
 Sudo: Root Permisions
 APT: Advanced package tool
 commands:
@@ -17,7 +18,9 @@ commands:
     - purge: uninstall programs erasing residual files.
     - search: search a package in the repositories.
   
-## Navigating using CLI
+#### Navigating using CLI
     - pwd: shows you where are you working.
     - ls : list all files (including directories) in the current directory.
     - cd : lets you navigate through directories.
+
+![cheatsheet](/Notes/note3/lscheat.png)
