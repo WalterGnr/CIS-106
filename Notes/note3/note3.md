@@ -1,4 +1,4 @@
-#Notes 3:
+# Notes 3:
 ## Linux terminal
 ### two ways to access:
 * terminal emulator
