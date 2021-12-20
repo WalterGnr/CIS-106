@@ -12,14 +12,14 @@
 
 ## Introduction:
 
-![samba](/FinalProject/img/samba.jpg)
+![samba](img/samba.jpg)
 
 SAMBA is an open source software that allows the user share files between linux/unix machines and Windows devices. However , SAMBA also works with MacOs Devices following a proper configuration.
 Today , we are going to focus how to set-up SAMBA and run it on a Local Area Network as a file server.
 
 ## Step by Step Installing SAMBA.
 
-![sambaexample](/FinalProject/img/sambaexample.jpg)
+![sambaexample](img/sambaexample.jpg)
 
 The process of installation of SAMBA is not the hardest but takes its time. It has many configurations to implement devices such as printers. We are going to focus on a simple file server.
 
@@ -28,26 +28,26 @@ The process of installation of SAMBA is not the hardest but takes its time. It h
 *  Configuration of the Hypervisor.
    If you are running Linux on a Virtual Machine , this configuration is mandatory. A Virtual machine default configuration uses internet provided by the host machine. However , in order to make Samba run properly , our virtual machine must have its own ip provided by the router.
 
-   ![hypervisorcfg](/FinalProject/img/2nd3.png)
+   ![hypervisorcfg](img/2nd3.png)
 
 ### Installing SAMBA on Linux Ubuntu 20.04
 
 1. We must install SAMBA and all its dependencies using the following command. `sudo apt install samba`
 
-![sambainstall](/FinalProject/img/f1.png)
+![sambainstall](img/f1.png)
 
-2. Check the status of the Samba Service using the following command. `systemctl status smbd`
+1. Check the status of the Samba Service using the following command. `systemctl status smbd`
 
-![sambastatus](/FinalProject/img/f2.png)
+![sambastatus](img/f2.png)
 
-3. Set up Samba to work on your Local Area Network.
+1. Set up Samba to work on your Local Area Network.
    * The location of the configuration file of samba is located in /`etc/samba/smb.conf`. We are going to create a file from zero saving the first one as a backup.
    Type in the terminal: `sudo mv /etc/samba/smb.conf /etc/samba/smb.conf.bak`. It is important to use "sudo" at the beginning because of the permissions of the folder. The command is going to take the original samba configuration file and keep it with a different name.
 
-   ![sambabackup](/FinalProject/img/f3.png)
+   ![sambabackup](img/f3.png)
 
    * Then , It is important to stop the samba service because it does not have a configuration file. `sudo systemctl stop smbd`. Use `sudo systemctl status smbd` to check if the service is stopped.
-   ![sambaservice](/FinalProject/img/f4.png)
+   ![sambaservice](img/f4.png)
 
    * Using a text editor (in this case , we are going to use "nano") create a new "smb.conf" file. `sudo nano /etc/samba/smb.conf`. The file must contain two sections: "global" and "shares".
    Type the following:
@@ -61,7 +61,7 @@ The process of installation of SAMBA is not the hardest but takes its time. It h
     
         The most important thing here is the "workgroup". Here you must type the name of the Local Area Network you want samba running. in this case , the workgroup is going to be the default one "WORKGROUP".
 
-    ![sambaconfig](/FinalProject/img/f5.png)
+    ![sambaconfig](img/f5.png)
 
 
     The last line "Include" is going to let me use two different files to organize my global parameters and my share's parameters.
@@ -105,14 +105,14 @@ The process of installation of SAMBA is not the hardest but takes its time. It h
       `sudo chown -R smbuser:smbgroup /home/student/Desktop/ShareableFolder`
       `sudo chmode -R g+w /home/student/Desktop/ShareableFolder`
 
-      ![lstest](/FinalProject/img/f6.png)
+      ![lstest](img/f6.png)
     * After that , We are ready to turn on SAMBA using the following command.
     `sudo systemctl start smbd`
 
-    ![final](/FinalProject/img/f7.png)
+    ![final](img/f7.png)
     * In order to access to your SAMBA file server on a windows computer. You must identify your Local IP. Then , type it down in your file browser.
-  ![finalito](/FinalProject/img/f8.png)
-  ![finalito](/FinalProject/img/f9.png)
+  ![finalito](img/f8.png)
+  ![finalito](img/f9.png)
 
 ## Final Quotes:
     
