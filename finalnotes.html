@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>finalnotes.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<ul>
+<li>
+<ol>
+<li><a href="#Linuxterminal">Linux terminal</a></li>
+</ol>
+<ul>
+<li>1.1. <a href="#twowaystoaccess:">two ways to access:</a>
+<ul>
+<li>1.1.1. <a href="#Bashshellisthemostcommonshellused.">Bash shell is the most common shell used.</a></li>
+<li>1.1.2. <a href="#SUDO-APT-COMMAND:">SUDO - APT - COMMAND:</a></li>
+<li>1.1.3. <a href="#NavigatingusingCLI">Navigating using CLI</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ol start="2">
+<li><a href="#Creatingfilesanddirectories:">Creating files and directories:</a></li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li><a href="#Movingandcopyingfilesanddirectories:">Moving and copying files and directories:</a></li>
+</ol>
+</li>
+<li>
+<ol start="4">
+<li><a href="#Workingwithlinks:">Working with links:</a></li>
+</ol>
+</li>
+<li>
+<ol start="5">
+<li><a href="#Usingwildcards:">Using wildcards:</a></li>
+</ol>
+<ul>
+<li>5.1. <a href="#WildCard:">* Wild Card:</a></li>
+<li>5.2. <a href="#WildCard:-1">? Wild Card:</a></li>
+<li>5.3. <a href="#WildCard:-1">[] Wild Card:</a></li>
+<li>5.4. <a href="#UsingBraceExpansion:">Using Brace Expansion:</a></li>
+</ul>
+</li>
+<li>
+<ol start="6">
+<li><a href="#Catcommand:">Cat command:</a></li>
+</ol>
+</li>
+<li>
+<ol start="7">
+<li><a href="#TacCommand:">Tac Command:</a></li>
+</ol>
+</li>
+<li>
+<ol start="8">
+<li><a href="#MoreCommand:">More Command:</a></li>
+</ol>
+</li>
+<li>
+<ol start="9">
+<li><a href="#Lesscommand:">Less command:</a></li>
+</ol>
+</li>
+<li>
+<ol start="10">
+<li><a href="#headcommand:">head command:</a></li>
+</ol>
+</li>
+<li>
+<ol start="11">
+<li><a href="#tailcommand:">tail command:</a></li>
+</ol>
+</li>
+<li>
+<ol start="12">
+<li><a href="#cutcommand:">cut command:</a></li>
+</ol>
+</li>
+<li>
+<ol start="13">
+<li><a href="#Pastecommand:">Paste command:</a></li>
+</ol>
+</li>
+<li>
+<ol start="14">
+<li><a href="#Sortcommand:">Sort command:</a></li>
+</ol>
+</li>
+<li>
+<ol start="15">
+<li><a href="#wccommand:">wc command:</a></li>
+</ol>
+</li>
+<li>
+<ol start="16">
+<li><a href="#trcommand:">tr command:</a></li>
+</ol>
+</li>
+<li>
+<ol start="17">
+<li><a href="#diffcommand:">diff command:</a></li>
+</ol>
+</li>
+<li>
+<ol start="18">
+<li><a href="#GrepcommandHolyGrail">Grep command (Holy Grail)</a></li>
+</ol>
+</li>
+<li>
+<ol start="19">
+<li><a href="#InputandOutput">Input and Output</a></li>
+</ol>
+</li>
+<li>
+<ol start="20">
+<li><a href="#VimTexteditor:">Vim Text editor:</a></li>
+</ol>
+</li>
+<li>
+<ol start="21">
+<li><a href="#TarProgram:">Tar Program:</a></li>
+</ol>
+</li>
+<li>
+<ol start="22">
+<li><a href="#CPIOProgram:">CPIO Program :</a></li>
+</ol>
+</li>
+<li>
+<ol start="23">
+<li><a href="#Fileownership:">File ownership:</a></li>
+</ol>
+</li>
+<li>
+<ol start="24">
+<li><a href="#users:">users:</a></li>
+</ol>
+</li>
+<li>
+<ol start="25">
+<li><a href="#groups:">groups:</a></li>
+</ol>
+</li>
+<li>
+<ol start="26">
+<li><a href="#Howtobegin:">How to begin:</a></li>
+</ol>
+</li>
+<li>
+<ol start="27">
+<li><a href="#Ifelsestatement:">If/else statement:</a></li>
+</ol>
+</li>
+<li>
+<ol start="28">
+<li><a href="#Casestatement:">Case statement:</a></li>
+</ol>
+</li>
+<li>
+<ol start="29">
+<li><a href="#Looping:">Looping:</a></li>
+</ol>
+</li>
+</ul>
+<h1 id="notes-2">Notes 2:</h1>
+<p><img src="/Notes/note2/0001.jpg" alt="chsht"></p>
+<p><img src="/Notes/note2/0002.jpg" alt="chsht"></p>
+<h1 id="notes-3">Notes 3:</h1>
+<h2 id="1-a-namelinuxterminalalinux-terminal">1. <a name='Linuxterminal'></a>Linux terminal</h2>
+<h3 id="11-a-nametwowaystoaccessatwo-ways-to-access">1.1. <a name='twowaystoaccess:'></a>two ways to access:</h3>
+<ul>
+<li>terminal emulator</li>
+<li>linux terminal</li>
+</ul>
+<h4 id="111-a-namebashshellisthemostcommonshellusedabash-shell-is-the-most-common-shell-used">1.1.1. <a name='Bashshellisthemostcommonshellused.'></a>Bash shell is the most common shell used.</h4>
+<p>Some commands: date (shows date) - cal (calendar) - clear (clear screen) - uname (system info)</p>
+<h4 id="112-a-namesudo-apt-commandasudo---apt---command">1.1.2. <a name='SUDO-APT-COMMAND:'></a>SUDO - APT - COMMAND:</h4>
+<p>Sudo: Root Permisions
+APT: Advanced package tool
+commands:
+- update: updates information about every source configured previously.
+- upgrade: update the program installed before.
+- install : install a program located in a source configured previously.
+- remove: uninstall programs
+- purge: uninstall programs erasing residual files.
+- search: search a package in the repositories.</p>
+<h4 id="113-a-namenavigatingusingclianavigating-using-cli">1.1.3. <a name='NavigatingusingCLI'></a>Navigating using CLI</h4>
+<pre><code>- pwd: shows you where are you working.
+- ls : list all files (including directories) in the current directory.
+- cd : lets you navigate through directories.
+</code></pre>
+<p><img src="/Notes/note3/lscheat.png" alt="cheatsheet"></p>
+<h1 id="note-4">Note 4:</h1>
+<h2 id="2-a-namecreatingfilesanddirectoriesacreating-files-and-directories">2. <a name='Creatingfilesanddirectories:'></a>Creating files and directories:</h2>
+<p>mkdir : create directories
+touch : create files
+rm: delete files/directories</p>
+<h2 id="3-a-namemovingandcopyingfilesanddirectoriesamoving-and-copying-files-and-directories">3. <a name='Movingandcopyingfilesanddirectories:'></a>Moving and copying files and directories:</h2>
+<p>mv : moves and renames directories
+cp : copies files or directories</p>
+<h2 id="4-a-nameworkingwithlinksaworking-with-links">4. <a name='Workingwithlinks:'></a>Working with links:</h2>
+<p>ln : Create a hard link
+ln -s : Create a soft link.</p>
+<h2 id="5-a-nameusingwildcardsausing-wildcards">5. <a name='Usingwildcards:'></a>Using wildcards:</h2>
+<h3 id="51-a-namewildcarda-wild-card">5.1. <a name='WildCard:'></a>* Wild Card:</h3>
+<p>Matches anything and nothing and matches any number of characters.
+example: ls *.txt will match any .txt file.</p>
+<h3 id="52-a-namewildcard-1a-wild-card">5.2. <a name='WildCard:-1'></a>? Wild Card:</h3>
+<p>Matches precisely one character.</p>
+<h3 id="53-a-namewildcard-1a-wild-card">5.3. <a name='WildCard:-1'></a>[] Wild Card:</h3>
+<p>matches a single character in a range of values.
+example: ls*[0-9]* will match all files whose name has at least one number.</p>
+<h3 id="54-a-nameusingbraceexpansionausing-brace-expansion">5.4. <a name='UsingBraceExpansion:'></a>Using Brace Expansion:</h3>
+<p>It is not considered a wildcard but allows you to generate arbitrary string to use with commands.
+example: mkdir -p music/{jazz,rock}</p>
+<h1 id="note5">note5:</h1>
+<h2 id="6-a-namecatcommandacat-command">6. <a name='Catcommand:'></a>Cat command:</h2>
+<p>Displays the content of one or two files.
+cat + file1 + file2</p>
+<h2 id="7-a-nametaccommandatac-command">7. <a name='TacCommand:'></a>Tac Command:</h2>
+<p>It is the same thing as CAT but it displays the content of the file in reverse order.
+tac + file1 + file2</p>
+<h2 id="8-a-namemorecommandamore-command">8. <a name='MoreCommand:'></a>More Command:</h2>
+<p>A Pager pgram used for displaying the content of a text file one page at a time.
+more + file</p>
+<h2 id="9-a-namelesscommandaless-command">9. <a name='Lesscommand:'></a>Less command:</h2>
+<p>Same thing as more command. The only difference is that &quot;less&quot; uses less memory , because &quot;more&quot; loads the entire file and &quot;less&quot; does not.
+less + file</p>
+<h2 id="10-a-nameheadcommandahead-command">10. <a name='headcommand:'></a>head command:</h2>
+<p>Displays the top N number of lines of a file. By default prints 10.
+head + option + file
+example: head -5 file.txt   displays the first 5 lines.</p>
+<h2 id="11-a-nametailcommandatail-command">11. <a name='tailcommand:'></a>tail command:</h2>
+<p>Displays the last N number of lines of a file. By default prints 10.
+tail + option + file
+example: tail -5 file.txt   displays the last 5 lines.</p>
+<h2 id="12-a-namecutcommandacut-command">12. <a name='cutcommand:'></a>cut command:</h2>
+<p>Used to extract a specific section of each line of a file.
+cut + option + file
+example: cut -d : -f1 /etc/passwd  Shows all the users using delimiters.</p>
+<h2 id="13-a-namepastecommandapaste-command">13. <a name='Pastecommand:'></a>Paste command:</h2>
+<p>Used to join files horizontally in columns.
+paste + option + file</p>
+<h2 id="14-a-namesortcommandasort-command">14. <a name='Sortcommand:'></a>Sort command:</h2>
+<p>sort the content of the file in alphabetical order , reverse , by number or by month.
+sort + option + file
+example: sort -r file.txt   sort the file in reverse order.</p>
+<h2 id="15-a-namewccommandawc-command">15. <a name='wccommand:'></a>wc command:</h2>
+<p>used to print the number of lines , characters and bytes in a file.
+wc + option + file
+example: wc -c file.txt         displays the number of bytes in the file</p>
+<h2 id="16-a-nametrcommandatr-command">16. <a name='trcommand:'></a>tr command:</h2>
+<p>Translate or delete characters from standard output.
+output | tr + option + set + set
+example: cat file.txt | tr '.' ',' file.txt     replace a period by a comma.</p>
+<h2 id="17-a-namediffcommandadiff-command">17. <a name='diffcommand:'></a>diff command:</h2>
+<p>Compares files and display the differences between them.
+diff + option + f1 + f2</p>
+<h2 id="18-a-namegrepcommandholygrailagrep-command-holy-grail">18. <a name='GrepcommandHolyGrail'></a>Grep command (Holy Grail)</h2>
+<p>Command used to match a string pattern from a file or standard output.</p>
+<p>grep + option + pattern + file
+example: grep &quot;ip&quot; file.txt     search for lines that contains &quot;IP&quot;.</p>
+<h2 id="19-a-nameinputandoutputainput-and-output">19. <a name='InputandOutput'></a>Input and Output</h2>
+<p>to save the output of a file:   ls &gt; file.txt
+save the output and append it   ls &gt;&gt; file.txt</p>
+<p>The pipe &quot;|&quot; allows you to redirect the standard output of a command to the standard input of another.
+example:  man ls | grep &quot;human-readable&quot;</p>
+<h1 id="note-6">note 6:</h1>
+<h2 id="20-a-namevimtexteditoravim-text-editor">20. <a name='VimTexteditor:'></a>Vim Text editor:</h2>
+<p>https://vim.rtorr.com &quot;CheatSheet&quot;</p>
+<h2 id="21-a-nametarprogramatar-program">21. <a name='TarProgram:'></a>Tar Program:</h2>
+<p>Creates a file by combining files an directories into a single file.
+create:
+tar + option + archive name + files to add
+extract:
+tar + options + file to extract</p>
+<h2 id="22-a-namecpioprogramacpio-program">22. <a name='CPIOProgram:'></a>CPIO Program ::</h2>
+<p>Creates an archive , restore files from an archive , or copies a directory hierarchy. requires a list of files.
+example:
+ls | cpio -ov &gt; archive.cpio</p>
+<h2 id="23-a-namefileownershipafile-ownership">23. <a name='Fileownership:'></a>File ownership:</h2>
+<p>chown command used for changing group owner.
+chown user:group file
+example:
+chown john file.txt</p>
+<p>chmod : used to change permissions on files and directories.
+chmod + permissions file/directory</p>
+<p><img src="/Notes/note6/note6.png" alt="chmod"></p>
+<h1 id="note7">note7</h1>
+<p>The /etc/passwd file contains all information about users.</p>
+<h2 id="24-a-nameusersausers">24. <a name='Users:'></a>Users:</h2>
+<p>To add an user:</p>
+<p>sudo adduser &quot;username&quot;</p>
+<p>To delete an user:</p>
+<p>sudo userdel -r &quot;username&quot;</p>
+<h2 id="25-a-namegroupsagroups">25. <a name='Groups:'></a>Groups:</h2>
+<p>to add a group:</p>
+<p>sudo addgroup &quot;groupname&quot;</p>
+<p>to delete a group:</p>
+<p>sudo delgroup &quot;groupname&quot;</p>
+<h1 id="note-8">note 8</h1>
+<h2 id="26-a-namehowtobeginahow-to-begin">26. <a name='Howtobegin:'></a>How to begin:</h2>
+<p>Insert the following line in any text editor:  #!/bin/bash
+echo : used as a COUT in c++ or print in python.
+read : used as a CIN in c++.</p>
+<h2 id="27-a-nameifelsestatementaifelse-statement">27. <a name='Ifelsestatement:'></a>If/else statement:</h2>
+<p>if: starts the condition being tested
+then: starts the portion of code specifying what to do if the condition evaluates to true:
+else: Starts the portion of code specifying what to do if the condition evaluates to false</p>
+<p>if command
+then
+command
+else
+command
+fi.</p>
+<h2 id="28-a-namecasestatementacase-statement">28. <a name='Casestatement:'></a>Case statement:</h2>
+<p>Uses one variable to specify multiple values and matches a portion of the script to each value.
+example:</p>
+<blockquote>
+<p>case $answer in
+1) command
+2) command
+3) command
+esac</p>
+</blockquote>
+<h2 id="29-a-nameloopingalooping">29. <a name='Looping:'></a>Looping:</h2>
+<p>while loop: Do the command while the condition is true.
+while [conditon]
+do
+command
+done</p>
+<p>until loop: Do the command while the condition is false.
+until [conditon]
+do
+command
+done</p>
+<p>for loop: Repeats the commands between do and done a specified number of times. Every time the script carries out the commands in the loop , a new value is given to a variable.</p>
+<p>for $variable in 1 2 3 4 5 .. N
+do
+commands
+done.</p>
+
+</body>
+</html>
