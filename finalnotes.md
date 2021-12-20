@@ -39,9 +39,9 @@
 
 # Notes 2:
 
-![chsht](/Notes/note%20mark%20down/0001.jpg)
+![chsht](/Notes/note2/0001.jpg)
 
-![chsht](/Notes/note%20mark%20down/0002.jpg)
+![chsht](/Notes/note2/0002.jpg)
 
 # Notes 3:
 ##  1. <a name='Linuxterminal'></a>Linux terminal
